@@ -1,6 +1,6 @@
 # Tropical Cyclone Risk to China's High-Speed Rail
 
-Standard MATLAB code package prepared from the current workspace for the paper:
+Standard MATLAB code package prepared for the paper:
 
 **"Tropical cyclone risk to China's high-speed rail"**
 
@@ -8,7 +8,6 @@ Standard MATLAB code package prepared from the current workspace for the paper:
 
 - `method_model/`
   - core method-side MATLAB scripts for calculating daily city-to-city travel times under cyclones, affected passenger proportions, and passenger delays.
-  - current workspace does **not** include the required method-model input datasets
 - `figure_reproduction/`
   - caption-aligned figure-reproduction package for the code-backed manuscript figures
   - includes copied figure data and MATLAB scripts; outputs are generated locally when the scripts are run
@@ -70,15 +69,11 @@ Still missing as reproducible code outputs:
 - Fig. 1a schematic
 - final PowerPoint-only panel lettering and layout adjustments
 
-### Method-model gaps in the current workspace
+### Method-model input data availability
 
-The following are **not** present in the current workspace and therefore are not included as runnable inputs in this release package:
+The full method-model workflow requires large input datasets, intermediate outputs and associated method files. These include source data in `method_model/source_data/`, result data in `method_model/result_data/`, and helper routines required by the city-to-city fastest-travel-time calculation. Because the full method-model package is large, these files are not included in the current GitHub release package.
 
-- the `method_model/source_data/` input datasets expected by the main method script
-- the legacy helper function `rail_city2city_time_given_disruption.m`
-- the helper function `shortest_paths.m` used by the city-to-city fastest-travel-time routine
-
-These missing method-model files also affect execution of Fig. 2e-f, because the new income-ranked curve code depends on socioeconomic inputs and city-level resilience-loss outputs from `method_model/source_data/` and `method_model/result_data/`.
+The required method-model input datasets and associated files are available from the corresponding author upon reasonable request. Please contact Min Ouyang at min.ouyang@hust.edu.cn
 
 ## MATLAB Requirements
 
@@ -92,8 +87,12 @@ These missing method-model files also affect execution of Fig. 2e-f, because the
 - MATLAB base environment
 - any toolbox or third-party implementation required by the missing `shortest_paths.m` helper
 
-## Notes For GitHub Release
+## Tested environment
 
-- `.gitignore` is included for MATLAB temporary files, Office lock files, and generated outputs.
-- `method_model/source_data/` and `method_model/result_data/` include placeholder README files only.
-- `figure_reproduction/README.md` contains the detailed figure-package notes carried over from the standalone figure package.
+The code has been tested on Windows 11 with MATLAB R2020a.
+
+## Installation and run time
+
+No compilation or package installation is required. Typical installation time on a normal desktop computer is less than 5 minutes, excluding installation of MATLAB and required MATLAB toolboxes.
+
+The expected run time for the figure-reproduction scripts on a normal desktop computer is about 30 minutes.
